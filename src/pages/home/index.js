@@ -2,12 +2,15 @@ import React, { useEffect, useState } from 'react';
 import { getPets } from '../../api/petfinder';
 import Hero from '../../components/hero';
 
-// import useParams
-// import Link
+import { useParams } from 'react-router-dom';
 
 const HomePage = () => {
   const [data, setData] = useState(null);
-  const type = ''; // Fix me!
+
+  //initial useParam, it returns an object with the different params
+  let rootParam = useParams();
+  //now I create a constant which pulls the type from the rootParam object
+  const type = rootParam.type;
 
   useEffect(() => {
     async function getPetsData() {
